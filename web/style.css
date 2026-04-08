@@ -1,0 +1,24 @@
+:root { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+body { margin: 0; background: #f5f7fb; color: #1e2430; }
+.container { max-width: 1080px; margin: 0 auto; padding: 16px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.card { background: #fff; border-radius: 14px; padding: 16px; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+.card.wide { grid-column: 1 / -1; }
+.fields { display: grid; grid-template-columns: repeat(2, minmax(180px,1fr)); gap: 10px; }
+label { display: flex; flex-direction: column; gap: 6px; font-size: 14px; }
+input { border: 1px solid #cfd7e6; border-radius: 8px; padding: 8px 10px; }
+button { border: 0; border-radius: 10px; padding: 10px 14px; background: #2563eb; color: white; cursor: pointer; }
+button:hover { opacity: .95; }
+.resultBox { margin-top: 12px; border: 1px solid #e5eaf3; border-radius: 10px; padding: 12px; background: #fbfcff; line-height: 1.6; white-space: pre-line; }
+.muted { color: #65708a; }
+.stepper { display: flex; gap: 8px; margin-bottom: 12px; }
+.step { padding: 8px 12px; border-radius: 20px; border: 1px solid #d6deef; color: #6a7691; }
+.step.active { border-color: #2563eb; color: #2563eb; background: #eef4ff; }
+.stepPanel { display: none; }
+.stepPanel.active { display: block; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { border: 1px solid #cdd6ea; padding: 8px 10px; border-radius: 999px; cursor: pointer; background: #fff; }
+.chip.selected { border-color: #2563eb; background: #eef4ff; color: #1546ab; }
+.radioGroup { display: flex; flex-wrap: wrap; gap: 8px; }
+.row { display: flex; gap: 8px; margin-top: 12px; }
+@media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
