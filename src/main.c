@@ -1,16 +1,23 @@
 #include <stdio.h>
+#include <string.h>
 
 #include "ui_cli.h"
+#include "ui_tui.h"
 
-int main(void) {
+int main(int argc, char** argv) {
     WeatherInput weather;
     BehaviorInput behavior;
     int mode;
+
+    if (argc > 1 && strcmp(argv[1], "--tui") == 0) {
+        return run_tui_app();
+    }
 
     printf("========================================\n");
     printf(" TAIKAN - 服装戦略提案アプリ (CLI版)\n");
     printf(" これは天気表示アプリではなく、\n");
     printf(" 服装の意思決定を代替するためのアプリです。\n");
+    printf(" GUI風操作版は `./taikan_tui` または `./taikan --tui` を使用\n");
     printf("========================================\n\n");
 
     collect_weather_input(&weather);
