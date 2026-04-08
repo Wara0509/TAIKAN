@@ -1,10 +1,38 @@
 #include <stdio.h>
 
+#include "ui_cli.h"
+
 int main(void) {
-    /*
-     * STEP1: まだ実装前のため、構成確認メッセージのみ。
-     * STEP2でCLIロジックを実装する。
-     */
-    printf("TAIKAN STEP1: project skeleton ready.\n");
+    WeatherInput weather;
+    BehaviorInput behavior;
+    int mode;
+
+    printf("========================================\n");
+    printf(" TAIKAN - 服装戦略提案アプリ (CLI版)\n");
+    printf(" これは天気表示アプリではなく、\n");
+    printf(" 服装の意思決定を代替するためのアプリです。\n");
+    printf("========================================\n\n");
+
+    collect_weather_input(&weather);
+
+    printf("\nモードを選択してください:\n");
+    printf("1) 即決モード（数秒で戦略）\n");
+    printf("2) 精密モード（3ステップ入力）\n");
+    printf("> ");
+
+    if (scanf("%d", &mode) != 1) {
+        printf("入力エラー: 数値を入力してください。\n");
+        return 1;
+    }
+
+    if (mode == 1) {
+        run_quick_mode(&weather);
+    } else if (mode == 2) {
+        run_precise_mode(&weather, &behavior);
+    } else {
+        printf("未対応のモードです。1 または 2 を選択してください。\n");
+        return 1;
+    }
+
     return 0;
 }
